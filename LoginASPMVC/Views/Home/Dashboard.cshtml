@@ -1,0 +1,72 @@
+﻿@model LoginASPMVC.Models.User
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1>Dashboard</h1>
+
+<div>
+    <h4>User</h4>
+    <hr />
+
+    @* for session information *@
+    <h2>@ViewBag.UserSession</h2>
+
+     @{
+            if (ViewBag.sessionStatus == true)
+            {
+
+            <dl class="row">
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Gender)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Gender)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Age)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Age)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Password)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Password)
+                </dd>
+            </dl>
+
+
+            <div>
+                     @*  <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+                             <a asp-action="Index">Back to List</a> *@
+
+                <a class="btn btn-dark" asp-controller="Home" asp-action="Logout">Log Out</a>
+
+            </div>
+
+        }
+        else
+        {
+            <h3>No Data Available</h3>
+            <a class="btn btn-dark" asp-controller="Home" asp-action="Login">Login First</a>
+         
+        } 
+        }
+
+</div>
